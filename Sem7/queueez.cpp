@@ -1,13 +1,15 @@
 #include <iostream>
 #include <cstdio>
-#include <list>
 using namespace std;
 
 int main() {
     int t;
     scanf("%i", &t);
 
-    list<int> queue;
+    int queue[t];
+
+    int lastItem = -1;
+    int firstItem = 0;
 
     while(t--){
         int querie;
@@ -16,16 +18,17 @@ int main() {
         if(querie == 1){
             int input;
             scanf("%i", &input);
-            queue.push_back(input);
+            lastItem++;
+            queue[lastItem] = input;
         }
         else if(querie == 2){
-            if(queue.size() > 0){
-                queue.pop_front();
+            if(firstItem <= lastItem){
+                firstItem++;
             }
         }
         else{
-            if(queue.size() > 0){
-                printf("%i\n", queue.front());
+            if(firstItem <= lastItem){
+                printf("%i\n", queue[firstItem]);
             } else {
                 printf("Empty!\n");
             }
