@@ -4,6 +4,7 @@ using namespace std;
 /*
 Se emplea struct en vez de class para ejecutar las funciones de forma publica por defecto.
 Mayor explicacion en cada punto del codigo.
+Hay un error identificado mas abajo en la linea correspondiente.
 */
 
 /*Se crea la estructura del Nodo con su respectiva llave, guardando su indice de la lista y el color se emplea como un valor booleano (Es negro? Si/No).*/
@@ -117,6 +118,7 @@ void fixInsert(node*& root, node* k)
 }
 
 //funcion que inserta un nuevo nodo y llama a la funcion que corrige el arbol
+//Error que indica que las variables "x" y "y" estan declaradas fuera del scope, probablemente al solucionar este error aparezca lo mismo en la funcion fixInsert
 node*& insert(node*& root, int key, int index)
 {
     node* node = newNode(key, index);
